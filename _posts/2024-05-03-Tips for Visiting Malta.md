@@ -1,5 +1,5 @@
 ---
-layout: postpolos
+layout: post2
 title:  "Insider Tips for Visiting Malta: Dos and Don'ts for a Memorable Trip"
 author: admin
 tags: [blog]
