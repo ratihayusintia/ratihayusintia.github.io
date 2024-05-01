@@ -1,5 +1,5 @@
 ---
-layout: postpolos
+layout: post1
 title:  "Top Dos and Don'ts for a Memorable Trip to Gambia: Insider Tips & Must-See Places"
 author: admin
 tags: [blog]
