@@ -1,5 +1,5 @@
 ---
-layout: postpolos
+layout: post3
 title:  "Traveler's Guide: Do's and Don'ts for Experiencing Georgia's Rich Culture"
 author: admin
 tags: [blog]
