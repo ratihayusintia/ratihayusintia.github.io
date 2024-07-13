@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-
-<link rel="icon" href="{{ site.url }}/assets/images/logo.png"/>
-
-
+  <meta charset="UTF-8">
+ 
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>	
+  
+  
 {% seo %}
+  
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -107,332 +110,311 @@
 
 
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+
     
+<link href="{{ site.url }}/assets/css/main.css" rel="stylesheet"/>
 <link href="{{ site.url }}/assets/css/screen.css" rel="stylesheet"/>
 
-<link href="{{ site.url }}/assets/css/main.css" rel="stylesheet"/>
 
 <script src="{{ site.url }}/assets/js/jquery.min.js"></script>
 
 
 
 
-	
-	
-	
-<meta name="yandex-verification" content="eb02b88e0cf19b61" />
-<base target="_blank">
-	
+
+
+<style type="text/css">
+ 	img, iframe, div, details, ol, ul, li, b:section, b:widget, b:include, b:if, b:with, button, script, noscript, video, p {
+        loading: lazy;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5f5; /* Background color lebih netral */
+      color: #333;
+      margin: 0;
+      padding: 0;
+      transition: margin-right 0.3s;
+    }
+
+    .floating-header {
+      position: fixed;
+      top: 0;
+      right: -35;
+      width: 100%;
+      background-color: #fff;
+      color: #ff5000;
+      padding: 10px 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      font-size: 24px; /* Ukuran font judul blog diperkecil */
+      font-weight: 600; /* Ketebalan font judul blog diperbesar */
+      text-transform: bold; /* Teks judul blog menjadi huruf besar */
+    }
+
+    .sidebar {
+      width: 200px;
+      background: #fff; /* Warna biru laut untuk sidebar */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow lebih ringan */
+      padding: 20px;
+      position: fixed;
+      top: 60px; /* Top value diganti dari 0 menjadi 60px */
+      bottom: 0;
+      overflow-y: auto;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transform: translateX(-100%);
+      z-index: 1000;
+    }
+
+    .sidebar.open {
+      transform: translateX(0);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow sedikit lebih tebal */
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar > ul > li > a {
+      display: block; /* Ubah display ke block */
+      padding: 10px 15px;
+      margin: 5px 0;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+      font-size: 18px; /* Ukuran font judul blog diperkecil */
+      font-weight: 600; /* Ketebalan font judul blog diperbesar */
+      text-transform: uppercase; /* Teks judul blog menjadi huruf besar */
+      background-color: #ff5000; /* Biru muda untuk kategori */
+      color: #fff;
+    }
+
+    .sidebar > ul > li > a:hover {
+      background-color: #ff3333; /* Biru gelap saat hover */
+      color: #000;
+    }
+
+    .dropdown-menu {
+      display: none;
+      list-style-type: none;
+      padding-left: 20px;
+      margin: 10px 0;
+    }
+
+    .sidebar > ul > li.open > .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu > li > a {
+      display: block; /* Ubah display ke block */
+      padding: 8px 15px;
+      margin: 3px 0;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+      background-color: #ffaaaa; /* Warna biru laut untuk submenu */
+      color: #000;
+    }
+
+    .dropdown-menu > li > a:hover {
+      background-color: #ff0000; /* Biru muda saat hover */
+      color: #fff;
+    }
+
+    .menu-button {
+      position: absolute;
+      top: 10px;
+      right: 45px;
+      background-color: #ff5000;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1001;
+      transition: background-color 0.3s, box-shadow 0.3s;
+      animation: pulse 1.5s infinite;
+    }
+
+    .menu-button:hover {
+      background-color: #ff5000;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      animation: none; /* Disable animation on hover */
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: auto;
+        height: auto;
+        position: fixed;
+        top: 60px; /* Adjust top value for smaller screens */
+        bottom: auto;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
 </head>
+<body>
 
+<div class="floating-header">
+<h1 style="margin: 0; font-size: 24px; font-weight: 600;">Vacation Blog</h1>
+  <button class="menu-button" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+</div>
 
-<body class="{{layout}}" >
-
-	    
-
-
-
-
-
-
-
-
-	
-
-	
-	
-	
-	
-	<!-- defer loading of font and font awesome -->
-	<noscript id="deferred-styles">
-		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet"/>
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"/>
-	</noscript>
-
-
-<!-- Begin Menu Navigation
-================================================== -->
-<center class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
-
-    <div class="container pr-0">
-
-    <!-- Begin Logo -->
-    <a class="navbar-brand" href="{{ site.url }}/">
-    <img src="{{ site.url }}/{{ site.logo }}" alt="{{ site.name }}"/>
-    </a>
-    <!-- End Logo -->
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarMediumish">
-
-        <!-- Begin Menu -->
-
-            <ul class="navbar-nav ml-auto">
-
-                {% if page.url == "/" %}
-                <li class="nav-item active">
-                {% else %}
-                <li class="nav-item">
-                {% endif %}
-                <a class="nav-link" href="{{ site.url }}/">Home</a>
-                </li>
-
-                <li class="nav-item">
-                <a class="nav-link" href="{{ site.url }}/terms-and-conditions">Terms and Conditions</a>
-                </li>
-		    
-		    <li class="nav-item">
-                <a class="nav-link" href="{{ site.url }}/privacy-policy">Privacy Policy</a>
-                </li>
-
-		    <br />
-
-                {% include search-lunr.html %}
-
-            </ul>
-
-        <!-- End Menu -->
-
-    </div>
-
-    </div>
-</center>
-<!-- End Navigation
-================================================== -->
-
-<div class="site-content">
-
-<div class="container">
-	
-
-<!-- Content
-================================================== -->
-<div class="main-content">
-
-<link rel="stylesheet" href="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.css" type="text/css" />
-<script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
-
-	
-	
-    {{ content }}
-
-
-    <br />
-	<b>My favorite video while on holiday in one of the beautiful places. This video is only short but I always remember it.</b>
-	<link rel="stylesheet" href="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.css" type="text/css" />
-<script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
-
-<video id='my-video' controls  autoplay muted style="width:100%;">
-    <source data-fluid-hd src='https://video.twimg.com/ext_tw_video/1143674758455648262/pu/vid/320x630/fhxIIe2IBzgv6J7T.mp4'
- title='amazonianai' type='video/mp4' />
-</video> 
-<script type="application/javascript">
-    var testVideo = fluidPlayer(
-        "my-video",
-{
-	"layoutControls": {
-		"controlBar": {
-			"autoHideTimeout": 1,
-			"animated": true,
-			"autoHide": true
-		},
-		"htmlOnPauseBlock": {
-			"html": null,
-			"height": null,
-			"width": null
-		},
-		"autoplay": false,
-		"mute": true,
-		"allowTheatre": true,
-		"playPauseAnimation": true,
-		"playbackRateEnabled": true,
-		"allowDownload": true,
-		"playButtonShowing": true,
-		"fillToContainer": true,
-		"posterImage": "{% if page.image contains "://" %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}"
-	},
-	"vastOptions": {
-	"adList": [
-                    {
-                        "roll": "preRoll",
-                        "vastTag": "https://www.videosprofitnetwork.com/watch.xml?key=a2dfbe20ee755d8f5b94529596c12352"
-                    },
-                    {
-                        "roll": "midRoll",
-                        "vastTag": "https://www.videosprofitnetwork.com/watch.xml?key=6f6732348ac4680e3e347f51038ca52e",
-                        "timer": 2
-                    },
-                    {
-                        "roll": "midRoll",
-                        "vastTag": "https://www.videosprofitnetwork.com/watch.xml?key=b320bff569bb5535540366abcef11a09",
-                        "timer": 3
-                    },
-{
-                        "roll": "midRoll",
-                        "vastTag": "https://www.videosprofitnetwork.com/watch.xml?key=f76eb4092d4b94ed2411172982571a87",
-                        "timer": 4
-                    },
-            ]
-        }
-}
-    );
-</script>  
-
-
-	      <hr />
-
-<b>
-	the beauty of Indonesian women
-</b>
-<hr />
-    <style type="text/css">
-.bcd140526_post_feed li.item {
-    display: block;
-    clear: both; 
-height: auto;
-    margin: 15px 0 0 0;
-    padding: 15px 0 0 0;
-    border-top: 1px dotted #BBB;
-}
-.bcd140526_post_feed ul {
-    margin: 0;
- height: auto;
-    padding: 0;
-}
-.bcd140526_post_feed li.item.item-0 {
-    margin: 0;
-    padding: 0; 
-height: auto;
-    border: none;
-}
-.bcd140526_post_feed li.item h3.title {
-    display: block;
- height: auto;
-    margin: 0 0 5px 0;
-}
-
-.bcd140526_post_feed li.item div.meta {
-    font-size: 11px;
- height: auto;
-    color: #999;
-	margin: 0 0 5px 0;
-}
-.bcd140526_post_feed li.item div.meta .meta-item {
-    display: inline-block;
-	*display: inline;
-	zoom: 1;
-    margin: 0 1em 0 0;
- height: auto;
-}
-.bcd140526_post_feed li.item p.snippet {
-    line-height: 1.5em;
-	margin: 0;
- height: auto;
-}
-.bcd140526_post_feed.list a.thumbnail {
-    margin: 0 7px 7px 0;
-    float: left;
-    display: block;
-    line-height: 1; 
-height: auto;
-	/*
-    width: 48px;
-    height: 48px;
-	*/
-    overflow: hidden;
-    position: relative;
-}
-.bcd140526_post_feed.list a.thumbnail img {
-    width: auto;
-    height: auto;
-}
-.bcd140526_post_feed li.item a.cate {
-    display: block;
-    margin: 0 0 5px 0;
- height: auto;
-}
-div.bcd140526_post_feed.column a.thumbnail {
-    display: block;
-    width: 100%;
-    line-height: 1;
-    margin: 0 0 5px 0; 
-height: auto;
-}
-div.bcd140526_post_feed.column a.thumbnail img {
-    width: 100%;
-    height: auto;
-}
-</style>
-
-
- 
-<script type="text/javascript">
-/*
-Blogger Random - Recent - Specific Label Posts Widget - All in One Post Feed Widget
-Link: https://sneeit.com/blogger-random-recent-specific-label-posts-widget-all-in-one-post-feed-widget/
-Author: Tien Nguyen
-Version: 1.7
-*/
-var bcd140526_show_thumbnail = true;/*bcd140526_show_thumbnail*/
-var bcd140526_show_label = false;/*bcd140526_show_label*/
-var bcd140526_show_comment_numbers = false;/*bcd140526_show_comment_numbers*/
-var bcd140526_show_date = false;/*bcd140526_show_date*/
-var bcd140526_show_author_name = false;/*bcd140526_show_author_name*/
-var bcd140526_show_readmore = false;/*bcd140526_show_readmore*/
-var bcd140526_show_snippet = true;/*bcd140526_show_snippet*/
-var bcd140526_hide_copyright = true;/*bcd140526_hide_copyright*/
-var bcd140526_snippet_length = 0;/*bcd140526_snippet_length*/
-var bcd140526_post_count = 150;/*bcd140526_post_count*/
-var bcd140526_thumbnail_size = 100;// v1.5, only effect with list style/*bcd140526_thumbnail_size*/
-var bcd140526_sort_by = 'latest'; // latest or random/*bcd140526_sort_by*/
-var bcd140526_index_label = 'blog2';/*bcd140526_index_label*/
-var bcd140526_design_style = 'column';// list or column/*bcd140526_design_style*/
-var bcd140526_date_format = 'mm/dd/yyyy';/*bcd140526_date_format*/
-var lang_readmore = 'Readmore';/*lang_readmore*/
-var HOST = 'https://www.ioma.my.id';/*HOST*/
-function bcd140526_bi_script(b){document.write('<script type="text/javascript" src="'+b+'">\x3c/script>')}function bi_date_format(b,a){b=b.split("-");date=new Date(b[0],b[1]-1,b[2].substring(0,2));dd=date.getDate();mm=date.getMonth()+1;yyyy=date.getFullYear();a=a.replace("dd",dd);a=a.replace("mm",mm);return a=a.replace("yyyy",yyyy)}
-function bi_get_first_image(b){var a="",d='src="',c='"';index0=b.indexOf("<img ");-1!=index0&&(index1=b.indexOf(d,index0),-1!=index0&&(index2=b.indexOf(c,index1+d.length),-1!=index0&&(a=b.substring(index1+d.length,index2))));""==a&&(d='"',index0=b.indexOf('data-thumbnail-src="'),-1!=index0&&(index1=b.indexOf(d,index0+20),-1!=index0&&(a=b.substring(index0+20,index1))));""==a&&(d='src="',c='"',index0=b.indexOf("<iframe "),-1!=index0&&(index1=b.indexOf(d,index0),-1!=index0&&(index2=b.indexOf(c,index1+
-d.length),-1!=index0&&(a=b.substring(index1+d.length,index2),a=a.replace("http://www.youtube.com/watch?v=",""),a=a.replace("http://www.youtube.com/embed/",""),a=a.replace("?rel=0",""),a="http://img.youtube.com/vi/"+a+"/mqdefault.jpg"))));return a}
-function bcd140526_bi_jshort(b){var a={},d=/<\S[^>]*>/g;a.id=b.feed.id.$t;key="blog-";index=a.id.indexOf(key);a.id=a.id.substring(index+key.length);a.id=a.id.replace(".comments","");a.cate=[];if("category"in b.feed)for(i=0;i<b.feed.category.length;i++)a.cate[i]=b.feed.category[i].term;a.title="";"title"in b.feed&&(a.title=b.feed.title.$t);a.subtitle="";"subtitle"in b.feed&&(a.subtitle=b.feed.subtitle.$t);a.admin={};a.admin.name="Anonymous";a.admin.uri="";a.admin.avatar="http://img1.blogblog.com/img/anon36.png";
-"name"in b.feed.author[0]&&(a.admin.name=b.feed.author[0].name.$t);"uri"in b.feed.author[0]&&(a.admin.uri=b.feed.author[0].uri.$t);"gd$image"in b.feed.author[0]&&"http://img1.blogblog.com/img/blank.gif"!=b.feed.author[0].gd$image.src&&(a.admin.avatar=b.feed.author[0].gd$image.src);a.total_entry=Number(b.feed.openSearch$totalResults.$t);a.start_index=Number(b.feed.openSearch$startIndex.$t);a.item_per_page=Number(b.feed.openSearch$itemsPerPage.$t);a.entry_number=0;"entry"in b.feed&&(a.entry_number=
-b.feed.entry.length);a.entry=[];for(i=0;i<a.entry_number;i++){a.entry[i]={};temp={};entry=b.feed.entry[i];temp.id=entry.id.$t;key="post-";index=temp.id.indexOf(key);temp.id=temp.id.substring(index+key.length);temp.published="";"published"in entry&&(temp.published=entry.published.$t);temp.cate=[];if("category"in entry)for(j=0;j<entry.category.length;j++)temp.cate[j]=entry.category[j].term;temp.title="";"title"in entry&&(temp.title=entry.title.$t);temp.content="";"content"in entry&&(temp.content=entry.content.$t);
-temp.summary="";"summary"in entry&&(temp.summary=entry.summary.$t);""==temp.summary&&(temp.summary=temp.content.replace(d,""));""==temp.content&&(temp.content=temp.summary);temp.link="";temp.reply_label="comments";if("link"in entry)for(j=0;j<entry.link.length;j++)"alternate"==entry.link[j].rel&&(temp.link=entry.link[j].href),"replies"==entry.link[j].rel&&(temp.reply_label=entry.link[j].title);temp.author={};temp.author.name="Anonymous";temp.author.uri="";temp.author.avatar="http://img1.blogblog.com/img/anon36.png";
-a0=entry.author[0];"name"in a0&&(temp.author.name=a0.name.$t);"uri"in a0&&(temp.author.uri=a0.uri.$t);"gd$image"in a0&&"http://img1.blogblog.com/img/blank.gif"!=a0.gd$image.src&&(temp.author.avatar=a0.gd$image.src);temp.thumbnail="";"media$thumbnail"in entry&&(temp.thumbnail=entry.media$thumbnail.url);temp.reply_number=0;"thr$total"in entry&&(temp.reply_number=Number(entry.thr$total.$t));temp.reply_label=temp.reply_label.replace(temp.reply_number+" ","");temp.reply_to="";temp.reply_json="";temp.reply_title=
-"";"thr$in-reply-to"in entry&&(temp.reply_to=entry["thr$in-reply-to"].href,temp.reply_json=entry["thr$in-reply-to"].source,temp.reply_json=temp.reply_json.replace("/default/","/summary/"),temp.reply_json+="?alt=json-in-script");temp.pid="";if("gd$extendedProperty"in entry)for(j=0;j<entry.gd$extendedProperty.length;j++)"blogger.itemClass"==entry.gd$extendedProperty[j].name&&(temp.pid=entry.gd$extendedProperty[j].value);temp.pid=temp.pid.replace("pid-","");a.entry[i]=temp}return a}
-"undefined"==typeof jquery_included&&(jquery_included=!1);
-function jquery_init(){if("undefined"==typeof jQuery){if(!jquery_included){jquery_included=!0;var b=document.createElement("script");b.setAttribute("src","http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js");b.setAttribute("type","text/javascript");document.getElementsByTagName("head")[0].appendChild(b)}setTimeout(function(){jquery_init()},50)}else $('link[href*="font-awesome.css"]').length||(b=document.createElement("link"),b.setAttribute("href","http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"),
-b.setAttribute("rel","stylesheet"),document.getElementsByTagName("head")[0].appendChild(b))}jquery_init();function echo(b){document.write(b)}
-function bcd140526_show(b){b=bcd140526_bi_jshort(b);var a="";if(b.total_entry){a+='<div class="bcd140526_post_feed '+bcd140526_design_style+" "+(bcd140526_show_thumbnail?"thumb":"no-thumb")+'"><ul>';for(var d=0;d<b.total_entry&&d<bcd140526_post_count;d++){p=b.entry[d];a+='<li class="item item-'+d+'">';p.thumbnail||(p.thumbnail=bi_get_first_image(p.content));if(bcd140526_show_thumbnail&&p.thumbnail){if("column"===bcd140526_design_style){var c=p.thumbnail;-1!=c.indexOf("/s72-c/")?c=c.replace("/s72-c/",
-"/s1600/"):-1!=c.indexOf("=s72-c")?c=c.replace("=s72-c","=s1600-c"):-1!=c.indexOf("youtube.com")&&-1!=c.indexOf("/default.")&&(c=c.replace("/default.","/mqdefault."))}else c=p.thumbnail,-1!=c.indexOf("/s72-c/")?c=c.replace("/s72-c/","/s"+bcd140526_thumbnail_size+"-c/"):-1!=c.indexOf("=s72-c")?c=c.replace("=s72-c","=s"+bcd140526_thumbnail_size+"-c"):-1!=c.indexOf("youtube.com")&&-1!=c.indexOf("/default.")&&(c=c.replace("/default.","/mqdefault."));p.thumbnail=c;a+='<a class="thumbnail" style="width:'+
-bcd140526_thumbnail_size+"%;height:"+bcd140526_thumbnail_size+'%;" href="'+p.link+'"><img src="'+p.thumbnail+'"/></a>'}a+='<div class="item-body">';bcd140526_show_label&&"undefined"!=typeof p.cate[0]&&(a+='<a class="cate" href="'+HOST+"/search/label/"+p.cate[0]+'">'+p.cate[0]+"</a>");a+='<h3 class="title"><a href="'+p.link+'">'+p.title+"</a></h3>";if(bcd140526_show_author_name||bcd140526_show_comment_numbers||bcd140526_show_date)a+='<div class="meta">',bcd140526_show_author_name&&(a+='<span class="meta-item author-name"><i class="fa fa-user"></i> '+
-p.author.name+"</span>"),bcd140526_show_comment_numbers&&(a+='<span class="meta-item comment-number"><i class="fa fa-comment"></i> '+p.reply_number+"</span>"),bcd140526_show_comment_numbers&&(a+='<span class="meta-item date-time"><i class="fa fa-clock-o"></i> '+bi_date_format(p.published,bcd140526_date_format)+"</span>"),a+='<div style="clear:both!important;float:none;!important;line-height:0!important"></div></div><div style="clear:both!important;float:none;!important;line-height:0!important"></div>';
-bcd140526_show_snippet&&(p.summary.length>bcd140526_snippet_length&&(p.summary=p.summary.substring(0,bcd140526_snippet_length)+"..."),bcd140526_show_readmore&&(p.summary+=' <a href="'+p.link+'#more">'+lang_readmore+"</a>"),a+='<p class="snippet">'+p.summary+"</p>");a+='<div style="clear:both!important;float:none;!important;line-height:0!important"></div></div><div style="clear:both!important;float:none;!important;line-height:0!important"></div>';a+="</li>"}a+="</ul>";bcd140526_hide_copyright||(a+=
-'<div style="clear:both!important;float:none;!important;line-height:0!important"></div><a target="_blank" class="copyright" href="https://sneeit.com/blogger-random-recent-specific-label-posts-widget-all-in-one-post-feed-widget/" style="font-size: 11px!important;text-align:right;visibility: visible;!important;text-indent:0!important;height:auto!important;width:100%!important;position:static!important;color:#999!important;display:block!important;opacity:1!important;">BloggerWidget</a>');a+='</div><div style="clear:both!important;float:none;!important;line-height:0!important"></div>'}else a+=
-"<p><em>Have no posts</em></p>";echo(a)}
-function bcd140526_main(b){"random"==bcd140526_sort_by?(b=bcd140526_bi_jshort(b),rand=Math.floor(Math.random()*b.total_entry+1),rand+bcd140526_post_count>b.total_entry&&(rand=b.total_entry-bcd140526_post_count+1),1>rand&&(rand=1),b=HOST+"/feeds/posts/default",bcd140526_index_label&&(b+="/-/"+encodeURIComponent(bcd140526_index_label)),b+="?alt=json-in-script&max-results="+bcd140526_post_count+"&start-index="+rand+"&callback=bcd140526_show",bcd140526_bi_script(b)):bcd140526_show(b)}
-var script_url=HOST+"/feeds/posts/default";bcd140526_index_label&&(script_url+="/-/"+encodeURIComponent(bcd140526_index_label));script_url+="?alt=json-in-script";script_url="random"==bcd140526_sort_by?script_url+"&max-results=0":script_url+("&max-results="+bcd140526_post_count);script_url+="&callback=bcd140526_main";bcd140526_bi_script(script_url);
-
-</script>
-
-</div>    
+<div class="sidebar" id="sidebar">
+	<b>Vacation Destinations by Region</b>
+  <ul>
+    <li>
+      <a href="#" onclick="toggleMenu(this)">Asia</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Japan</a></li>
+        <li><a href="#">Thailand</a></li>
+        <li><a href="#">Maldives</a></li>
+        <li><a href="#">Indonesia</a></li>
+        <!-- Add more popular Asian countries as needed -->
+      </ul>
+    </li>
+    <li>
+      <a href="#" onclick="toggleMenu(this)">Europe</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">France</a></li>
+        <li><a href="#">Italy</a></li>
+        <li><a href="#">Spain</a></li>
+        <li><a href="#">Greece</a></li>
+        <!-- Add more popular European countries as needed -->
+      </ul>
+    </li>
+    <li>
+      <a href="#" onclick="toggleMenu(this)">Americas</a>
+      <ul class="dropdown-menu">    
+        <li><a href="#">United States</a></li>
+        <li><a href="#">Mexico</a></li>
+        <li><a href="#">Brazil</a></li>
+        <li><a href="#">Canada</a></li>
+        <!-- Add more popular American countries as needed -->
+      </ul>
+    </li>
+    <li>
+      <a href="#" onclick="toggleMenu(this)">Africa</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">South Africa</a></li>
+        <li><a href="#">Kenya</a></li>
+        <li><a href="#">Egypt</a></li>
+        <li><a href="#">Morocco</a></li>
+        <!-- Add more popular African countries as needed -->
+      </ul>
+    </li>
+    <li>
+      <a href="#" onclick="toggleMenu(this)">Oceania</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Australia</a></li>
+        <li><a href="#">New Zealand</a></li>
+        <li><a href="#">Fiji</a></li>
+        <li><a href="#">French Polynesia</a></li>
+        <!-- Add more popular Oceanian countries as needed -->
+      </ul>
+    </li>
+    <li>
+      <a href="#" onclick="toggleMenu(this)">Middle East</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">United Arab Emirates</a></li>
+        <li><a href="#">Saudi Arabia</a></li>
+        <li><a href="#">Jordan</a></li>
+        <!-- Add more popular Middle Eastern countries as needed -->
+      </ul>
+    </li>
+  </ul>
 </div>
 
 
-	
 
-	
-	
-	
-	
-	
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('open');
+  }
+
+  function toggleMenu(element) {
+    const parentLi = element.parentElement;
+    const siblings = parentLi.parentElement.children;
+
+    for (let sibling of siblings) {
+      if (sibling !== parentLi && sibling.classList.contains('open')) {
+        sibling.classList.remove('open');
+      }
+    }
+
+    parentLi.classList.toggle('open');
+  }
+</script>
+
+    <div class="main-content">
+    	
+    
+                	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet"/>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"/>
+	</noscript>
+            
+            <div class="site-content">
+
+<div class="container">
+            <div class="main-content">
+      {{ content }}
+      </div>     </div>
+        </div>
+        </div>
+    </div>
+<a id="show_id" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_id').style.display='none';"></a><span id="spoiler_id" style="display: none;"><a class="link" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_id').style.display='';"></a>
+<div style="background-color: rgba(0, 0, 0, 0); margin: 1px;">
+<div class="smallfont"><i><span style="font-size: 16px; font-weight: bold; margin-right: 3px;"></span></i><input onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Hide'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'new posts'; }" style="background-color: #00000000; font-size: 16px; width: auto;" type="button" value="new posts" />
+</div>
+<div class="alt2" style="background-color: rgba(255, 255, 255, 0); margin: 0px; padding: 0px;">
+<div style="display: none;" loading="lazy">
 
 
-<!-- Begin Footer
+	<!-- Categories Jumbotron
 ================================================== -->
+<div class="jumbotron fortags" >
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            {% assign categories_list = site.categories %}
+            {% if categories_list.first[0] == null %}
+                {% for category in categories_list %}
+                    <a class="mt-1 mb-1" href="{{site.baseurl}}/categories#{{ category | url_escape | strip | replace: ' ', '-' }}">{{ category | camelcase }} ({{ site.tags[category].size }})</a>
+                {% endfor %}
+            {% else %}
+                {% for category in categories_list %}
+                    <a class="mt-1 mb-1" href="{{site.baseurl}}/categories#{{ category[0] | url_escape | strip | replace: ' ', '-' }}">{{ category[0] | camelcase }} ({{ category[1].size }})</a>
+                {% endfor %}
+            {% endif %}
+            {% assign categories_list = nil %}
+		</div>
+	</div>
+</div>
+
+	</div></div></div></span>
+	<br />
+	<center>
 <footer class="footer">
     <div class="container">
     
@@ -440,22 +422,19 @@ var script_url=HOST+"/feeds/posts/default";bcd140526_index_label&&(script_url+="
     
         <div class="row">
             <div class="col-md-6 col-sm-6 text-center text-lg-left">
-                Copyright © {{ site.time | date: "%Y" }}&nbsp;-&nbsp;<a href="{{ site.url }}">{{ site.name }}</a>
+      <a href="/terms-and-conditions">Terms and Conditions</a>&nbsp; •&nbsp;<a href="/privacy-policy">Privacy Policy</a>
+		    <br />
+		    Copyright © {{ site.time | date: "%Y" }}&nbsp;-&nbsp;<a href="{{ site.url }}">{{ site.name }}</a>
 		
             </div>
             
         </div>
     </div>
 </footer>
-<!-- End Footer
-================================================== -->
+</center>
 
-</div> <!-- /.site-content -->
 
-<!-- Scripts
-================================================== -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
@@ -470,156 +449,7 @@ var script_url=HOST+"/feeds/posts/default";bcd140526_index_label&&(script_url+="
 {% if page.layout == 'post' %}
 <script id="dsq-count-scr" src="//{{site.disqus}}.disqus.com/count.js"></script>
 {% endif %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div id='ds' style='width:100%;margin:auto; text-align:center;float:none;overflow:hidden; display:scroll;position:fixed; bottom:0%;z-index:9999'>
-         <div><a id='close-ds' onclick='document.getElementById(&apos;ds&apos;).style.display = &apos;none&apos;;' style='cursor:pointer;'><img alt='close' src='https://3.bp.blogspot.com/-ZZSacDHLWlM/VhvlKTMjbLI/AAAAAAAAF2M/UDzU4rrvcaI/s1600/btn_close.gif' title='close button'/></a></div>
-    <div style='background-color:#fff; text-align:center;display:block;max-width:100%;height:50px;overflow:auto;margin:auto'>
-<script type="text/javascript">
-	atOptions = {
-		'key' : 'a03ccd983783081c32e98687fa158143',
-		'format' : 'iframe',
-		'height' : 50,
-		'width' : 320,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//evendisciplineseedlings.com/a03ccd983783081c32e98687fa158143/invoke.js"></script>
-<br /><script type="text/javascript">
-	atOptions = {
-		'key' : '624f7847107a10488032a7a551cba5b8',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//evendisciplineseedlings.com/624f7847107a10488032a7a551cba5b8/invoke.js"></script>
-<script type="text/javascript">
-	atOptions = {
-		'key' : 'ac9a478c23cd777b121d82c4be9b2966',
-		'format' : 'iframe',
-		'height' : 300,
-		'width' : 160,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//evendisciplineseedlings.com/ac9a478c23cd777b121d82c4be9b2966/invoke.js"></script>
-<script type="text/javascript">
-	atOptions = {
-		'key' : '5fb4250a8668afd9928b28b1f9666ffb',
-		'format' : 'iframe',
-		'height' : 600,
-		'width' : 160,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//evendisciplineseedlings.com/5fb4250a8668afd9928b28b1f9666ffb/invoke.js"></script>
-<script type="text/javascript">
-	atOptions = {
-		'key' : '93c978e1d215bc2856d6c15002f5768a',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//evendisciplineseedlings.com/93c978e1d215bc2856d6c15002f5768a/invoke.js"></script><script type="text/javascript">
-	atOptions = {
-		'key' : '8c3f4c07f4823b0a09c58bd25bf40e7f',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//evendisciplineseedlings.com/8c3f4c07f4823b0a09c58bd25bf40e7f/invoke.js"></script>
-<script type="text/javascript">
-	atOptions = {
-		'key' : '41790db49dd937b4476b9261bfe6c2c3',
-		'format' : 'iframe',
-		'height' : 50,
-		'width' : 320,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//scheduleginnarcotic.com/41790db49dd937b4476b9261bfe6c2c3/invoke.js"></script>
-<script type="text/javascript">
-	atOptions = {
-		'key' : '8b3c834ed652ac093d7256450645b41e',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//scheduleginnarcotic.com/8b3c834ed652ac093d7256450645b41e/invoke.js"></script>
-<script type="text/javascript">
-	atOptions = {
-		'key' : 'c4b64b8f7f8d2ddcbd4a8542265c7c98',
-		'format' : 'iframe',
-		'height' : 300,
-		'width' : 160,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//scheduleginnarcotic.com/c4b64b8f7f8d2ddcbd4a8542265c7c98/invoke.js"></script>
-<script type="text/javascript">
-	atOptions = {
-		'key' : 'fdf01d974a14502985f975dd7f24e731',
-		'format' : 'iframe',
-		'height' : 600,
-		'width' : 160,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//scheduleginnarcotic.com/fdf01d974a14502985f975dd7f24e731/invoke.js"></script>
-<script type="text/javascript">
-	atOptions = {
-		'key' : '4eb89e36bf3831c955ed7258c4e8f7c5',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//scheduleginnarcotic.com/4eb89e36bf3831c955ed7258c4e8f7c5/invoke.js"></script>
-<script type="text/javascript">
-	atOptions = {
-		'key' : 'fd91bb4f5f140787a9af421450c422e8',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//scheduleginnarcotic.com/fd91bb4f5f140787a9af421450c422e8/invoke.js"></script>
-
-</div></div>
-
-
-	<script type="text/javascript">
-   var uid = '342117';
-   var wid = '714017';
-   var pop_tag = document.createElement('script');pop_tag.src='//cdn.popcash.net/show.js';document.body.appendChild(pop_tag);
-   pop_tag.onerror = function() {pop_tag = document.createElement('script');pop_tag.src='//cdn2.popcash.net/show.js';document.body.appendChild(pop_tag)};
-</script>
-
-	
+    
 
 </body>
 </html>
-
-
-
