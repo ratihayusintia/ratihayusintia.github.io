@@ -124,6 +124,9 @@
 
 
 <style type="text/css">
+h1, h2, h3, h4, h5, {
+	color: #fff5000
+	}
  	img, iframe, div, details, ol, ul, li, b:section, b:widget, b:include, b:if, b:with, button, script, noscript, video, p {
         loading: lazy;
     }
@@ -223,8 +226,8 @@
 
     .menu-button {
       position: absolute;
-      top: 10px;
-      right: 45px;
+      top: 7px;
+      right: 50px;
       background-color: #ff5000;
       color: #fff;
       border: none;
@@ -271,7 +274,9 @@
 <body>
 
 <div class="floating-header">
-<h1 style="margin: 0; font-size: 24px; font-weight: 600;">Vacation Blog</h1>
+<h1 style="margin: 0; font-size: 24px; font-weight: 600;">	  <a href="/">
+  {{ site.name }}
+  </a></h1>
   <button class="menu-button" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
 </div>
 
@@ -362,7 +367,7 @@
   }
 </script>
 
-    <div class="main-content" style="padding:2%;">
+    <div class="main-content" style="padding:3%;">
     	
     
                 	<noscript id="deferred-styles">
