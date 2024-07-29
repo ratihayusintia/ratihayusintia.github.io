@@ -93,7 +93,13 @@
 </script>
 	
 	
-
+<style>
+    html, body {
+        width: 100%;
+        overflow-x: hidden; /* Mencegah scrollbar horizontal */
+    }
+	</style>
+	
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -661,6 +667,7 @@ var script_url=HOST+"/feeds/posts/default";bcd140526_index_label&&(script_url+="
         .nikitta .content {
             max-width: 80%;
             padding: 20px;
+		overflow: auto;
             background: #fff;
             border-radius: 8px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
