@@ -11,8 +11,6 @@
   <title>{{ page.title }}</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-	
   <!-- alt img -->
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function() {
@@ -28,78 +26,7 @@
         image.setAttribute('loading', 'lazy');
       });
     });
-  </script><!-- alt img -->	
-	<!-- tabunder + url rotator -->
-<script>
-    // URL Feed Blogger
-    const feedUrl = 'https://www.ioma.my.id/feeds/posts/default/?start-index=1&max-results=6666&alt=json-in-script&callback=rak_info_Load';
-
-    // Fungsi untuk mengambil data dari feed
-    function fetchFeed() {
-        return new Promise((resolve, reject) => {
-            const script = document.createElement('script');
-            script.src = feedUrl;
-            document.body.appendChild(script);
-
-            window.rak_info_Load = (data) => {
-                const entries = data.feed.entry.map(entry => entry.link.find(link => link.rel === 'alternate').href);
-                resolve(entries);
-            };
-
-            script.onerror = () => reject('Failed to load feed.');
-        });
-    }
-
-    // Fungsi untuk memilih URL secara acak dari feed
-    function getRandomUrl(urls) {
-        return urls[Math.floor(Math.random() * urls.length)];
-    }
-
-    // Fungsi untuk membuka tab baru dengan URL yang dirotasi
-    function openTabUnder(url) {
-        const a = document.createElement('a');
-        a.href = url;
-        a.target = '_blank';
-        document.body.appendChild(a);
-        const evt = document.createEvent('MouseEvents');
-        evt.initMouseEvent('click', true, true, window, 1, 0, 0, 0, 0, false, false, false, false, 0, null);
-        a.dispatchEvent(evt);
-        document.body.removeChild(a);
-    }
-
-    // Fungsi untuk memeriksa apakah tabunder sudah dibuka sebelumnya
-    function hasTabUnderOpened() {
-        return localStorage.getItem('tabunderOpened') === 'true';
-    }
-
-    // Fungsi untuk menandai bahwa tabunder sudah dibuka
-    function markTabUnderOpened() {
-        localStorage.setItem('tabunderOpened', 'true');
-    }
-
-    // Event listener untuk klik
-    document.addEventListener('click', async () => {
-        if (!hasTabUnderOpened()) {
-            try {
-                const urls = await fetchFeed();
-                const randomUrl = getRandomUrl(urls);
-                openTabUnder(randomUrl);
-                markTabUnderOpened();
-            } catch (error) {
-                console.error(error);
-            }
-        }
-    });
-</script>
-	
-	
-<style>
-    html, body {
-        width: 100%;
-        overflow-x: hidden; /* Mencegah scrollbar horizontal */
-    }
-	</style>
-	
+  </script><!-- alt img -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -146,7 +73,15 @@
 	]
 }
 </script><!--breadcrumb-->
+
 	
+	<style>
+    html, body {
+        width: 100%;
+        overflow-x: hidden; /* Mencegah scrollbar horizontal */
+    }
+	</style>
+		
 	<!-- sitelinks -->
 <script type="application/ld+json">
 {
@@ -360,6 +295,73 @@
       }
     }
   </style>
+
+<!-- tabunder + url rotator -->
+<script>
+    // URL Feed Blogger
+    const feedUrl = 'https://www.ioma.my.id/feeds/posts/default/?start-index=1&max-results=6666&alt=json-in-script&callback=rak_info_Load';
+
+    // Fungsi untuk mengambil data dari feed
+    function fetchFeed() {
+        return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = feedUrl;
+            document.body.appendChild(script);
+
+            window.rak_info_Load = (data) => {
+                const entries = data.feed.entry.map(entry => entry.link.find(link => link.rel === 'alternate').href);
+                resolve(entries);
+            };
+
+            script.onerror = () => reject('Failed to load feed.');
+        });
+    }
+
+    // Fungsi untuk memilih URL secara acak dari feed
+    function getRandomUrl(urls) {
+        return urls[Math.floor(Math.random() * urls.length)];
+    }
+
+    // Fungsi untuk membuka tab baru dengan URL yang dirotasi
+    function openTabUnder(url) {
+        const a = document.createElement('a');
+        a.href = url;
+        a.target = '_blank';
+        document.body.appendChild(a);
+        const evt = document.createEvent('MouseEvents');
+        evt.initMouseEvent('click', true, true, window, 1, 0, 0, 0, 0, false, false, false, false, 0, null);
+        a.dispatchEvent(evt);
+        document.body.removeChild(a);
+    }
+
+    // Fungsi untuk memeriksa apakah tabunder sudah dibuka sebelumnya
+    function hasTabUnderOpened() {
+        return localStorage.getItem('tabunderOpened') === 'true';
+    }
+
+    // Fungsi untuk menandai bahwa tabunder sudah dibuka
+    function markTabUnderOpened() {
+        localStorage.setItem('tabunderOpened', 'true');
+    }
+
+    // Event listener untuk klik
+    document.addEventListener('click', async () => {
+        if (!hasTabUnderOpened()) {
+            try {
+                const urls = await fetchFeed();
+                const randomUrl = getRandomUrl(urls);
+                openTabUnder(randomUrl);
+                markTabUnderOpened();
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    });
+</script>
+	
+	
+
+	
 </head>
 <body>
 
@@ -376,59 +378,59 @@
     <li>
       <a href="#" onclick="toggleMenu(this)">Asia</a>
       <ul class="dropdown-menu">
-        <li><a href="#">Japan</a></li>
-        <li><a href="#">Thailand</a></li>
-        <li><a href="#">Maldives</a></li>
-        <li><a href="#">Indonesia</a></li>
+        <li><a href="/japan">Japan</a></li>
+        <li><a href="/thailand">Thailand</a></li>
+        <li><a href="/maldives">Maldives</a></li>
+        <li><a href="/indonesia">Indonesia</a></li>
         <!-- Add more popular Asian countries as needed -->
       </ul>
     </li>
     <li>
       <a href="#" onclick="toggleMenu(this)">Europe</a>
       <ul class="dropdown-menu">
-        <li><a href="#">France</a></li>
-        <li><a href="#">Italy</a></li>
-        <li><a href="#">Spain</a></li>
-        <li><a href="#">Greece</a></li>
+        <li><a href="/france">France</a></li>
+        <li><a href="/italy">Italy</a></li>
+        <li><a href="/spain">Spain</a></li>
+        <li><a href="/greece">Greece</a></li>
         <!-- Add more popular European countries as needed -->
       </ul>
     </li>
     <li>
       <a href="#" onclick="toggleMenu(this)">Americas</a>
       <ul class="dropdown-menu">    
-        <li><a href="#">United States</a></li>
-        <li><a href="#">Mexico</a></li>
-        <li><a href="#">Brazil</a></li>
-        <li><a href="#">Canada</a></li>
+        <li><a href="/united-states">United States</a></li>
+        <li><a href="/mexico">Mexico</a></li>
+        <li><a href="/brazil">Brazil</a></li>
+        <li><a href="/canada">Canada</a></li>
         <!-- Add more popular American countries as needed -->
       </ul>
     </li>
     <li>
       <a href="#" onclick="toggleMenu(this)">Africa</a>
       <ul class="dropdown-menu">
-        <li><a href="#">South Africa</a></li>
-        <li><a href="#">Kenya</a></li>
-        <li><a href="#">Egypt</a></li>
-        <li><a href="#">Morocco</a></li>
+        <li><a href="/south-africa">South Africa</a></li>
+        <li><a href="/kenya">Kenya</a></li>
+        <li><a href="/egypt">Egypt</a></li>
+        <li><a href="/morocco">Morocco</a></li>
         <!-- Add more popular African countries as needed -->
       </ul>
     </li>
     <li>
       <a href="#" onclick="toggleMenu(this)">Oceania</a>
       <ul class="dropdown-menu">
-        <li><a href="#">Australia</a></li>
-        <li><a href="#">New Zealand</a></li>
-        <li><a href="#">Fiji</a></li>
-        <li><a href="#">French Polynesia</a></li>
+        <li><a href="/australia">Australia</a></li>
+        <li><a href="/new-zealand">New Zealand</a></li>
+        <li><a href="/fiji">Fiji</a></li>
+        <li><a href="/french-polynesia">French Polynesia</a></li>
         <!-- Add more popular Oceanian countries as needed -->
       </ul>
     </li>
     <li>
       <a href="#" onclick="toggleMenu(this)">Middle East</a>
       <ul class="dropdown-menu">
-        <li><a href="#">United Arab Emirates</a></li>
-        <li><a href="#">Saudi Arabia</a></li>
-        <li><a href="#">Jordan</a></li>
+        <li><a href="/united-arab-emirates">United Arab Emirates</a></li>
+        <li><a href="/saudi-arabia">Saudi Arabia</a></li>
+        <li><a href="jordan">Jordan</a></li>
         <!-- Add more popular Middle Eastern countries as needed -->
       </ul>
     </li>
@@ -575,7 +577,7 @@ var bcd140526_snippet_length = 0;/*bcd140526_snippet_length*/
 var bcd140526_post_count = 150;/*bcd140526_post_count*/
 var bcd140526_thumbnail_size = 100;// v1.5, only effect with list style/*bcd140526_thumbnail_size*/
 var bcd140526_sort_by = 'random'; // latest or random/*bcd140526_sort_by*/
-var bcd140526_index_label = 'blog2';/*bcd140526_index_label*/
+var bcd140526_index_label = 'blog';/*bcd140526_index_label*/
 var bcd140526_design_style = 'column';// list or column/*bcd140526_design_style*/
 var bcd140526_date_format = 'mm/dd/yyyy';/*bcd140526_date_format*/
 var lang_readmore = 'Readmore';/*lang_readmore*/
@@ -644,8 +646,7 @@ var script_url=HOST+"/feeds/posts/default";bcd140526_index_label&&(script_url+="
 {% if page.layout == 'post' %}
 <script id="dsq-count-scr" src="//{{site.disqus}}.disqus.com/count.js"></script>
 {% endif %}
-
-
+    
 
 
     
@@ -665,9 +666,8 @@ var script_url=HOST+"/feeds/posts/default";bcd140526_index_label&&(script_url+="
             overflow: auto;
         }
         .nikitta .content {
-            max-width: 100%;
-            padding: 0px;
-		overflow: auto;
+            max-width: 80%;
+            padding: 20px;
             background: #fff;
             border-radius: 8px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -684,8 +684,8 @@ var script_url=HOST+"/feeds/posts/default";bcd140526_index_label&&(script_url+="
         }
         @media (max-width: 768px) {
             .nikitta .content {
-                max-width: 100%%;
-                padding: 0px;
+                max-width: 95%;
+                padding: 10px;
                 overflow: auto;
             }
             .nikitta .close-btn {
@@ -849,11 +849,130 @@ var script_url=HOST+"/feeds/posts/default";bcd140526_index_label&&(script_url+="
 
 
 
+  <!-- Link to Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  <!-- Other meta tags and styles -->
+  <style>
+    /* CSS Styling for Back to Top Button */
+    .back-to-top {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ff5000;
+      color: #ffffff;
+      padding: 10px;
+      border-radius: 50%;
+      text-decoration: none;
+      text-align: center;
+      z-index: 1000;
+      transition: opacity 0.3s ease-out;
+      border: 2px solid white;
+      font-size: 24px; /* Adjust icon size */
+      line-height: 1; /* Ensures the icon is vertically centered */
+    }
+
+    .back-to-top:hover {
+      background-color: #d14000;
+    }
+
+    @media screen and (max-width: 768px) {
+      .back-to-top {
+        bottom: 10px;
+        right: 10px;
+        font-size: 18px;
+      }
+    }
+  </style>
+
+  <a id="back-to-top" href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+  
+  <script>
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("back-to-top").style.display = "block";
+      } else {
+        document.getElementById("back-to-top").style.display = "none";
+      }
+    }
+
+    document.getElementById("back-to-top").addEventListener("click", function(event) {
+      event.preventDefault();
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    });
+  </script>
+
+
+
+  <!-- Link to Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  <!-- Other meta tags and styles -->
+  <style>
+    /* CSS Styling for Back to Top Button */
+    .back-to-top {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ff5000;
+      color: #ffffff;
+      padding: 10px;
+      border-radius: 50%;
+      text-decoration: none;
+      text-align: center;
+      z-index: 1000;
+      transition: opacity 0.3s ease-out;
+      border: 2px solid white;
+      font-size: 24px; /* Adjust icon size */
+      line-height: 1; /* Ensures the icon is vertically centered */
+    }
+
+    .back-to-top:hover {
+      background-color: #d14000;
+    }
+
+    @media screen and (max-width: 768px) {
+      .back-to-top {
+        bottom: 10px;
+        right: 10px;
+        font-size: 18px;
+      }
+    }
+  </style>
+
+  <a id="back-to-top" href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+  
+  <script>
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("back-to-top").style.display = "block";
+      } else {
+        document.getElementById("back-to-top").style.display = "none";
+      }
+    }
+
+    document.getElementById("back-to-top").addEventListener("click", function(event) {
+      event.preventDefault();
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    });
+  </script>
+
+
 
 
 
 	
-
 </body>
 </html>
+
 
