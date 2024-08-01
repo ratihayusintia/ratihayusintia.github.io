@@ -365,7 +365,165 @@
 	
 </head>
 <body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page.title | escape }} - {{ site.title | escape }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <style>
+        /* CSS untuk tombol TOC */
+        #tocButton {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            padding: 10px 15px;
+            background-color: #ff5000; /* Tombol terang */
+            color: #000; /* Teks tombol hitam */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
 
+        #tocButton:hover {
+            background-color: #ccc; /* Warna latar belakang tombol saat hover */
+        }
+
+        #tocSidebar {
+            position: fixed;
+            bottom: 50px;
+            left: 10px;
+            width: 250px;
+            max-height: 400px;
+            overflow-y: auto;
+            background-color: #333; /* Latar belakang sidebar gelap */
+            color: #eee; /* Warna teks sidebar terang */
+            border: 1px solid #444; /* Border sidebar gelap */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 1000;
+        }
+
+        #tocSidebar.visible {
+            display: block;
+        }
+
+        #tocSidebar h2 {
+            margin: 0;
+            padding: 10px;
+            background-color: #444; /* Header sidebar gelap */
+            border-bottom: 1px solid #555; /* Border bawah header sidebar */
+        }
+
+        #tocSidebar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #tocSidebar ul li {
+            margin: 0;
+            padding: 5px 10px;
+        }
+
+        #tocSidebar ul li ul {
+            padding-left: 20px;
+        }
+
+        #tocSidebar ul li a {
+            text-decoration: none;
+            color: #eee; /* Tautan TOC terang */
+        }
+
+        #tocSidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* CSS untuk ketebalan huruf berdasarkan level heading */
+        .toc-section > ul > li {
+            font-weight: 700; /* Ketebalan huruf untuk H2 */
+        }
+
+        .toc-section > ul > li > ul > li {
+            font-weight: 600; /* Ketebalan huruf untuk H3 */
+        }
+
+        .toc-section > ul > li > ul > ul > li {
+            font-weight: 500; /* Ketebalan huruf untuk H4 */
+        }
+
+        .toc-section > ul > li > ul > ul > ul > li {
+            font-weight: 400; /* Ketebalan huruf untuk H5 */
+        }
+
+        .toc-section > ul > li > ul > ul > ul > ul > li {
+            font-weight: 300; /* Ketebalan huruf untuk H6 */
+        }
+
+        /* Hapus nomor dari TOC */
+        .toc-number {
+            display: none; /* Menyembunyikan nomor */
+        }
+    </style>
+</head>
+<body>
+    <!-- Konten utama halaman -->
+    	
+    
+    
+    
+    {{ content }}
+
+    <!-- Kode TOC Button dan Sidebar -->
+    <button id="tocButton">Table of Contents</button>
+    <div id="tocSidebar">
+        
+        <ul id="tocList" class="toc-section">
+            <!-- JavaScript untuk mengisi TOC -->
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    var tocButton = document.getElementById('tocButton');
+                    var tocSidebar = document.getElementById('tocSidebar');
+                    var tocList = document.getElementById('tocList');
+
+                    // Mengisi TOC dengan daftar dari elemen heading
+                    var tocContent = '<ul>';
+                    var headings = document.querySelectorAll('h2, h3, h4, h5, h6');
+                    var lastLevel = 2;
+
+                    headings.forEach(function (heading) {
+                        var level = parseInt(heading.tagName.substring(1), 10);
+                        var id = 'srimaulina-rahayu-' + (heading.id || heading.textContent.toLowerCase().replace(/\s+/g, '-'));
+                        heading.id = id; // Tambahkan ID khusus jika belum ada
+
+                        if (level > lastLevel) {
+                            tocContent += '<ul class="toc-section">';
+                        } else if (level < lastLevel) {
+                            tocContent += '</ul>';
+                        }
+                        tocContent += `<li><a href="#${id}">${heading.textContent}</a></li>`;
+                        lastLevel = level;
+                    });
+
+                    if (lastLevel > 2) {
+                        tocContent += '</ul>';
+                    }
+
+                    tocContent += '</ul>';
+                    tocList.innerHTML = tocContent;
+
+                    // Fungsi untuk menampilkan atau menyembunyikan TOC
+                    tocButton.addEventListener('click', function () {
+                        tocSidebar.classList.toggle('visible');
+                    });
+                });
+            </script>
+        </ul>
+    </div>
+</body>
+</html>
 <div class="floating-header">
 <h1 style="margin: 0; font-size: 24px; font-weight: 600;">	  <a href="/">
   {{ site.name }}
