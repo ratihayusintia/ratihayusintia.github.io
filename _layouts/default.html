@@ -364,12 +364,7 @@
 	
 </head>
 <body>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>{{ page.title | escape }} - {{ site.title | escape }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
     <style>
         /* CSS untuk tombol TOC */
         #tocButton {
@@ -466,14 +461,7 @@
             display: none; /* Menyembunyikan nomor */
         }
     </style>
-</head>
-<body>
-    <!-- Konten utama halaman -->
-    	
-    
-    
-    
-    {{ content }}
+
 
     <!-- Kode TOC Button dan Sidebar -->
     <button id="tocButton">Table of Contents</button>
@@ -521,8 +509,7 @@
             </script>
         </ul>
     </div>
-</body>
-</html>
+
 <div class="floating-header">
 <h1 style="margin: 0; font-size: 24px; font-weight: 600;">	  <a href="/">
   {{ site.name }}
