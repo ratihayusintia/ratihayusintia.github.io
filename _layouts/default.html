@@ -9,7 +9,7 @@
 {% seo %}
   
   <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link reltitle="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <!-- alt img -->
   <script type="text/javascript">
@@ -616,8 +616,27 @@
 
 <div class="container">
             <div class="main-content">
-      {{ content }}
-      </div>     </div>
+     
+	<a id="show_id" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_id').style.display='none';"></a><span id="spoiler_id" style="display: none;"><a class="link" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_id').style.display='';"></a>
+<div style="background-color: rgba(0, 0, 0, 0); margin: 1px;">
+<div class="smallfont"><i><span style="font-size: 16px; font-weight: bold; margin-right: 3px;"></span></i><input onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = ''; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = ''; }" style="background-color: #00000000; font-size: 16px; width: auto;" type="button" value="" />
+</div>
+<div class="alt2" style="background-color: rgba(255, 255, 255, 0); margin: 0px; padding: 0px;">
+<div style="display: none;" loading="lazy">
+
+<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Yf2B6iwpLbQ" title="{{ page.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+</div></div></div></span>	    
+		    
+		    
+   {{ content }}
+
+
+
+
+
+		    
+ </div>     </div>
         </div>
         </div>
         
