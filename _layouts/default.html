@@ -371,8 +371,7 @@
 <div class="floating-header">
 <h1 style="margin: 0; font-size: 24px; font-weight: 600;">	  <a href="/">
   {{ site.name }}
-  </a></h1>
-	{% include search-lunr.html %}	
+  </a></h1>	
   <button class="menu-button" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
 </div>
 
@@ -439,11 +438,14 @@
         <!-- Add more popular Middle Eastern countries as needed -->
       </ul>
     </li>
-  </ul>
-	<ul><li>
-	<ul class="dropdown-menu">
+	  <li>
+		  <ul class="dropdown-menu">
 	{% include search-lunr.html %}	
-	</ul></li></ul>
+	</ul>
+	  </li>
+  </ul>
+	
+	
 </div>
 
 
