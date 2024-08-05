@@ -378,9 +378,7 @@
 
 <div class="sidebar" id="sidebar">
 	<b>Vacation Destinations by Region</b>
-	<ul class="dropdown-menu">
-	{% include search-lunr.html %}	
-	</ul>
+	
   <ul>
     <li>
       <a href="#" onclick="toggleMenu(this)">Asia</a>
@@ -442,6 +440,10 @@
       </ul>
     </li>
   </ul>
+	<ul><li>
+	<ul class="dropdown-menu">
+	{% include search-lunr.html %}	
+	</ul></li></ul>
 </div>
 
 
