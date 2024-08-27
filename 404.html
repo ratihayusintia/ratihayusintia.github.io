@@ -8,7 +8,24 @@ permalink: /404.html
   Dive into Journeys that Reach the Depths of the World's Oceans
 </h2>
 
-
+<div class="col-12 mb-4">
+        
+        <div class="row">
+          {% for post in site.categories.brazil limit: 3 %}
+          <div class="col-md-4 col-sm-6 animate__animated animate__fadeIn">
+            <div class="card">
+           <a href="{{ post.url }}">   <img src="{{ post.image }}" class="card-img-top" alt="{{ post.title }}">
+           </a>
+              <div class="card-body">
+                <h5 class="card-title" style="max-width:100%;">{{ post.title }}</h5>
+                <a href="{{ post.url }}" class="btn btn-primary">Read More
+                        </a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
       <link rel="stylesheet" href="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.css" type="text/css" />
 <script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script><center>
 <video id='404' controls autoplay loop muted style="max-width:100%; height:auto;" >
@@ -71,24 +88,7 @@ permalink: /404.html
 <script src="https://rawgit.com/rezamuhamad/rakinfo/master/sitemap.js"></script>
 <script src="https://www.fazri.my.id/feeds/posts/default/?start-index=1&max-results=6666&amp;alt=json-in-script&amp;callback=rak_info_Load"></script></div>
   
-<div class="col-12 mb-4">
-        
-        <div class="row">
-          {% for post in site.categories.brazil limit: 3 %}
-          <div class="col-md-4 col-sm-6 animate__animated animate__fadeIn">
-            <div class="card">
-           <a href="{{ post.url }}">   <img src="{{ post.image }}" class="card-img-top" alt="{{ post.title }}">
-           </a>
-              <div class="card-body">
-                <h5 class="card-title" style="max-width:100%;">{{ post.title }}</h5>
-                <a href="{{ post.url }}" class="btn btn-primary">Read More
-                        </a>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
+
 
 <div class="col-12 mb-4">
         
