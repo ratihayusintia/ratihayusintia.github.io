@@ -1,6 +1,6 @@
 # Site
-name: "Ninggra Ingga"
-title: "Ninggra Ingga"
+name: "ratihayusintia"
+title: "ratihayusintia"
 description: "Discover the world's Hidden Vacation Gems"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/logo.png'
@@ -48,7 +48,7 @@ jekyll-archives:
     category: '/category/:name/'
     
 # Pagination 
-paginate: 4
+paginate: 6
 paginate_path: /page:num/
     
 # Other
